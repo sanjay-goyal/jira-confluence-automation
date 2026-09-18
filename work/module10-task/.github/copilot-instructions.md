@@ -1,0 +1,5 @@
+- Important! Always follow the instructions in `./instructions/main.agent.md` file.
+- Always load the file completely, not partially.
+- It contains links to other files with instructions.
+- You should reload it in every prompt to get the latest instructions because the project workflow may change.
+- Keep the instruction set as the source of truth for project tasks and reporting.

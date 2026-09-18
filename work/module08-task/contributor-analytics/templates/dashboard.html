@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Contributor Analytics Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Project Manager Dashboard</p>
+          <h1>{{ data.sprint.name }}</h1>
+        </div>
+        <div class="badge">{{ data.sprint.status }}</div>
+      </header>
+
+      <section class="hero">
+        <div class="panel main-panel">
+          <div class="progress-header">
+            <h2>Sprint Completion</h2>
+            <span>{{ data.current_sprint.completion_percent }}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: {{ data.current_sprint.completion_percent }}%"></div>
+          </div>
+          <div class="progress-meta">
+            <span>Committed: {{ data.current_sprint.story_points_committed }} pts</span>
+            <span>Completed: {{ data.current_sprint.story_points_completed }} pts</span>
+          </div>
+        </div>
+
+        <div class="panel side-panel">
+          <h3>Current vs Previous Sprint</h3>
+          <div class="trend-row">
+            <span>Current</span>
+            <strong>{{ data.current_sprint.completion_percent }}%</strong>
+          </div>
+          <div class="trend-row">
+            <span>Previous</span>
+            <strong>{{ data.previous_sprint.completion_percent }}%</strong>
+          </div>
+          <div class="trend-row">
+            <span>Defects raised</span>
+            <strong>{{ data.current_sprint.defects_raised }}</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="metrics">
+        <div class="metric-card">
+          <p>Story Points Completed</p>
+          <h3>{{ data.current_sprint.story_points_completed }}</h3>
+        </div>
+        <div class="metric-card">
+          <p>Remaining</p>
+          <h3>{{ data.current_sprint.story_points_remaining }}</h3>
+        </div>
+        <div class="metric-card">
+          <p>Defects Raised</p>
+          <h3>{{ data.current_sprint.defects_raised }}</h3>
+        </div>
+        <div class="metric-card warning">
+          <p>Blocked</p>
+          <h3>{{ data.current_sprint.blocked_items }}</h3>
+        </div>
+      </section>
+
+      <section class="two-col">
+        <div class="panel">
+          <h3>Contributor Activity</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Contributor</th>
+                <th>Issues</th>
+                <th>Points</th>
+                <th>Defects</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for person in data.contributors %}
+              <tr>
+                <td>{{ person.name }}</td>
+                <td>{{ person.issues }}</td>
+                <td>{{ person.story_points }}</td>
+                <td>{{ person.defects }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <h3>Work Item Status</h3>
+          <ul class="status-list">
+            <li><span>Done</span><strong>{{ data.current_sprint.done_items }}</strong></li>
+            <li><span>In Progress</span><strong>{{ data.current_sprint.in_progress_items }}</strong></li>
+            <li><span>To Do</span><strong>{{ data.current_sprint.todo_items }}</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="two-col">
+        <div class="panel">
+          <h3>Activity Trend</h3>
+          <div class="chart-bars">
+            {% for item in data.team_activity %}
+            <div class="bar-group">
+              <div class="bar created" style="height: {{ (item.created * 8) }}px"></div>
+              <div class="bar resolved" style="height: {{ (item.resolved * 8) }}px"></div>
+              <span>{{ item.date.split('-')[-1] }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Risks & Blockers</h3>
+          <ul class="risk-list">
+            {% for risk in data.risks %}
+            <li>{{ risk }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

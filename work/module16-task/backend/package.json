@@ -1,0 +1,9 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "echo \"Backend dev script placeholder\"",
+    "start": "echo \"Backend start script placeholder\""
+  }
+}

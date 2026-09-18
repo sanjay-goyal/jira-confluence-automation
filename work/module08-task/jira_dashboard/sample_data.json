@@ -1,0 +1,39 @@
+{
+  "sprint": {
+    "name": "Sprint 24",
+    "status": "In Progress",
+    "goal": "Improve reporting and rollout readiness"
+  },
+  "current_sprint": {
+    "story_points_committed": 58,
+    "story_points_completed": 39,
+    "story_points_remaining": 19,
+    "defects_raised": 7,
+    "defects_resolved": 4,
+    "blocked_items": 3,
+    "done_items": 11,
+    "in_progress_items": 6,
+    "todo_items": 4,
+    "completion_percent": 67
+  },
+  "previous_sprint": {
+    "story_points_committed": 52,
+    "story_points_completed": 31,
+    "story_points_remaining": 21,
+    "defects_raised": 10,
+    "defects_resolved": 6,
+    "blocked_items": 5,
+    "completion_percent": 60
+  },
+  "team": [
+    {"name": "Amit", "story_points": 12, "defects": 2},
+    {"name": "Priya", "story_points": 10, "defects": 1},
+    {"name": "Rahul", "story_points": 8, "defects": 2},
+    {"name": "Sonia", "story_points": 9, "defects": 1}
+  ],
+  "risks": [
+    "Dependency on UAT sign-off for one critical story.",
+    "Two defects remain open in the integration workflow.",
+    "One story is awaiting release approval."
+  ]
+}

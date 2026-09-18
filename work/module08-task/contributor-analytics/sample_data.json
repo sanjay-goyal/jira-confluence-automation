@@ -1,0 +1,52 @@
+{
+  "sprint": {
+    "name": "Sprint 14",
+    "status": "In Progress",
+    "goal": "Enhancement delivery and stabilization"
+  },
+  "team_size": 14,
+  "current_sprint": {
+    "story_points_committed": 72,
+    "story_points_completed": 49,
+    "story_points_remaining": 23,
+    "defects_raised": 11,
+    "defects_resolved": 7,
+    "blocked_items": 4,
+    "done_items": 17,
+    "in_progress_items": 8,
+    "todo_items": 6,
+    "completion_percent": 68
+  },
+  "previous_sprint": {
+    "story_points_committed": 70,
+    "story_points_completed": 41,
+    "story_points_remaining": 29,
+    "defects_raised": 14,
+    "defects_resolved": 8,
+    "blocked_items": 5,
+    "completion_percent": 59
+  },
+  "contributors": [
+    {"name": "Amit", "issues": 9, "story_points": 12, "defects": 2, "completed": 5},
+    {"name": "Priya", "issues": 8, "story_points": 10, "defects": 1, "completed": 4},
+    {"name": "Rahul", "issues": 7, "story_points": 9, "defects": 2, "completed": 3},
+    {"name": "Sonia", "issues": 8, "story_points": 11, "defects": 1, "completed": 4},
+    {"name": "Karan", "issues": 6, "story_points": 7, "defects": 2, "completed": 3},
+    {"name": "Meera", "issues": 7, "story_points": 8, "defects": 1, "completed": 4},
+    {"name": "Deepak", "issues": 5, "story_points": 6, "defects": 1, "completed": 2},
+    {"name": "Nisha", "issues": 8, "story_points": 10, "defects": 1, "completed": 5}
+  ],
+  "team_activity": [
+    {"date": "2026-09-01", "created": 12, "resolved": 6},
+    {"date": "2026-09-05", "created": 18, "resolved": 7},
+    {"date": "2026-09-08", "created": 15, "resolved": 9},
+    {"date": "2026-09-12", "created": 16, "resolved": 11},
+    {"date": "2026-09-16", "created": 10, "resolved": 8}
+  ],
+  "risks": [
+    "Three items are waiting on dependency clearance.",
+    "Two defects remain open in the integration workflow.",
+    "One high-priority enhancement item is at risk of slipping.",
+    "Workload is concentrated among a few contributors."
+  ]
+}

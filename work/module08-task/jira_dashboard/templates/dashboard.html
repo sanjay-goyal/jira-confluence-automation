@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Jira Sprint Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Sprint Dashboard</p>
+          <h1>{{ data.sprint.name }}</h1>
+        </div>
+        <div class="badge">{{ data.sprint.status }}</div>
+      </header>
+
+      <section class="hero">
+        <div class="progress-panel">
+          <div class="progress-header">
+            <h2>Sprint Completion</h2>
+            <span>{{ data.current_sprint.completion_percent }}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: {{ data.current_sprint.completion_percent }}%;"></div>
+          </div>
+          <div class="progress-meta">
+            <span>Committed: {{ data.current_sprint.story_points_committed }} pts</span>
+            <span>Completed: {{ data.current_sprint.story_points_completed }} pts</span>
+          </div>
+        </div>
+
+        <div class="comparison-box">
+          <h3>Current vs Previous Sprint</h3>
+          <div class="comparison-row">
+            <span>Current</span>
+            <strong>{{ data.current_sprint.completion_percent }}%</strong>
+          </div>
+          <div class="comparison-row">
+            <span>Previous</span>
+            <strong>{{ data.previous_sprint.completion_percent }}%</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="metrics">
+        <div class="metric-card">
+          <p>Story Points Completed</p>
+          <h3>{{ data.current_sprint.story_points_completed }}</h3>
+        </div>
+        <div class="metric-card">
+          <p>Story Points Remaining</p>
+          <h3>{{ data.current_sprint.story_points_remaining }}</h3>
+        </div>
+        <div class="metric-card">
+          <p>Defects Raised</p>
+          <h3>{{ data.current_sprint.defects_raised }}</h3>
+        </div>
+        <div class="metric-card warning">
+          <p>Blocked Items</p>
+          <h3>{{ data.current_sprint.blocked_items }}</h3>
+        </div>
+      </section>
+
+      <section class="lower-grid">
+        <div class="panel">
+          <h3>Work Item Status</h3>
+          <ul class="status-list">
+            <li><span>Done</span><strong>{{ data.current_sprint.done_items }}</strong></li>
+            <li><span>In Progress</span><strong>{{ data.current_sprint.in_progress_items }}</strong></li>
+            <li><span>To Do</span><strong>{{ data.current_sprint.todo_items }}</strong></li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Defect Trend</h3>
+          <ul class="status-list">
+            <li><span>Raised</span><strong>{{ data.current_sprint.defects_raised }}</strong></li>
+            <li><span>Resolved</span><strong>{{ data.current_sprint.defects_resolved }}</strong></li>
+            <li><span>Open</span><strong>{{ data.current_sprint.defects_raised - data.current_sprint.defects_resolved }}</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3>Risks & Blockers</h3>
+        <ul class="risk-list">
+          {% for risk in data.risks %}
+            <li>{{ risk }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
